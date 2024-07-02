@@ -12,10 +12,8 @@ import TextEditorSimple from '@/components/TextEditorSimple'
 
 
 export default function Home() {
-
     const { user, introVideo, userDB, option, setOption, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG, item, cliente, setCliente, cart, setCart, modal, setModal } = useUser()
     const [itemEdit, setItemEdit] = useState([''])
-
     const [query, setQuery] = useState('')
     const [data3, setData3] = useState({})
 
@@ -25,7 +23,6 @@ export default function Home() {
     function onChangeHandler4(e, i) {
         setData3({ ...data3, [i]: { ...data3[i], paragraph: e } })
     }
-
     function saveFrontPage2(e) {
         e.preventDefault()
         setUserSuccess('Cargando')
@@ -39,14 +36,11 @@ export default function Home() {
             }
         })
     }
-
-
     function getDB() {
         getSpecificData('/Cliente', setCliente)
         console.log('ejec')
 
     }
-
     function deleteHandler(e, route, key) {
         e.preventDefault()
         setUserSuccess('Cargando')
@@ -62,12 +56,10 @@ export default function Home() {
         }
     }, [cliente])
     useEffect(() => {
-
         if (Object.keys(data3).length === 0 && cliente && cliente[query] && cliente[query] && cliente[query].tarjetas) {
             console.log('getData3')
             setData3({ ...cliente[query].tarjetas, ...data3, })
         }
-
     }, [data3, query, option, cliente, success])
     return (
         query !== 'contactos' && option === 'Tarjetas' && <form className="relative  pt-10" onSubmit={saveFrontPage2} >
@@ -84,7 +76,7 @@ export default function Home() {
                         <span className='font-bold uppercase w-[50%]'>
                             {i[1][`title`]}
                         </span>
-                        <Link type='button' className=" bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 rounded-[20px] text-white font-bold py-2 px-4 " href={`/Admin/Edit/AddContent?item=${query}&route=${i[0]}`} >
+                        <Link type='button' className=" bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 rounded-[20px] text-white font-bold py-2 px-4 " href={`/Admin/Edit/AddContentTarjetas2?item=${query}&route=${i[0]}`} >
                             Mas contenido
                         </Link>
                     </div>}
@@ -124,9 +116,5 @@ export default function Home() {
         </form>
     )
 }
-
-
-
-
 
 

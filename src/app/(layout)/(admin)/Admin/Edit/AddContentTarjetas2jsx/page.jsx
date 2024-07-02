@@ -66,7 +66,6 @@ export default function Home() {
         writeUserData(`/Cliente/${query}/tarjetas/${route}/especificaciones`, data2, setUserSuccess)
     }
 
-
     function close(e) {
         router.back()
     }
@@ -166,9 +165,5 @@ export default function Home() {
         </div>
     )
 }
-
-
-
-
 
 

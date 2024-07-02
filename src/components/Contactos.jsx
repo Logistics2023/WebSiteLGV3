@@ -40,7 +40,7 @@ export default function Home() {
         }
     }, [textEditor, query, option, cliente, success])
     return (
-        query === 'contactos' &&  <form className="relative  pt-10" onSubmit={addContact}>
+        <form className="relative  pt-10" onSubmit={addContact}>
                 <h2 className="text-base font-semibold leading-7 text-gray-900">Administrar contactos</h2>
 
                 <div className="border-b border-gray-900/10 pb-12">
